@@ -33,7 +33,7 @@ class DemoMessengerRepository @Inject constructor(val messengerDataSource: Messe
 
 
     override suspend fun listenToResponseMessage(): Flow<Message> {
-        return messengerDataSource.newMessage.consumeAsFlow().map { MessageResponseMapper.mapToDomainMessage(it) }
+        return messengerDataSource.newResponseMessage().map { MessageResponseMapper.mapToDomainMessage(it) }
 
     }
 }

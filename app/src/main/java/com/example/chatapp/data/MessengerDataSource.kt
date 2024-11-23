@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,7 +22,8 @@ import javax.inject.Singleton
 @Singleton
 class MessengerDataSource @Inject constructor(@IoDispatcher dispatcher : CoroutineDispatcher){
 
-    val newMessage = Channel<MessageResponse>()
+    //val newMessage = Channel<MessageResponse>()
+    private val responseMessage = MutableSharedFlow<MessageResponse>()
     private val coroutineScope = CoroutineScope(dispatcher)
 
      suspend fun sendMessage(sendMessageRequest: SendMessageRequest): MessageResponse {
@@ -38,8 +40,13 @@ class MessengerDataSource @Inject constructor(@IoDispatcher dispatcher : Corouti
         coroutineScope.launch { // check this how this scope will be cancel when viewmodel gets cleared?
             delay(5000)
             // emit the new message
-            newMessage.send(demoGetMessageResponse())
+            responseMessage.emit(demoGetMessageResponse())
+            //newMessage.send(demoGetMessageResponse())
         }
+    }
+
+    fun newResponseMessage(): MutableSharedFlow<MessageResponse> {
+        return responseMessage
     }
 
     //Below method is just to create reply of send message.
