@@ -1,0 +1,19 @@
+Index: app/src/main/java/com/example/chatapp/test.text
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>f1\nefwefr\nergertg\nergertgyrthrthjrytj\nrgrthrytj\nwefrwer\nwerwer\nwertet\nertertetr\n\naaaaa
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/chatapp/test.text b/app/src/main/java/com/example/chatapp/test.text
+--- a/app/src/main/java/com/example/chatapp/test.text	(revision 8ffa8ed63a8792f9be6ed3631a7efbd9e016a348)
++++ b/app/src/main/java/com/example/chatapp/test.text	(date 1738222299243)
+@@ -3,7 +3,7 @@
+ ergertg
+ ergertgyrthrthjrytj
+ rgrthrytj
+-wefrwer
++wefrwerQ
+ werwer
+ wertet
+ ertertetr
